@@ -22,4 +22,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --cov=FastAPI-app test.py
+          pytest test.py
