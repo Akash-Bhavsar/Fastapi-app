@@ -26,4 +26,4 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t docker-FastAPI-app .
-        working-directory: FastAPI-app
+        working-directory: docker
