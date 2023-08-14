@@ -18,8 +18,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Replace with actual requirements
+          pip install -r requirement.txt
 
       - name: Run tests
         run: |
-          pytest --cov=FastAPI-app test.py  # Replace with actual module and test file names
+          pytest --cov=FastAPI-app test.py
