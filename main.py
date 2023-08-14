@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from __manifest__ import __description__, __version__
 import git
 
 
@@ -10,7 +11,7 @@ async def root():
     repo = git.Repo(search_parent_directories=True)
     sha = repo.head.object.hexsha
     return {'FastAPI': {
-      "version": "1.0",
-      "description": "my-application's description.",
+      "version": __version__,
+      "description": __description__,
       "sha": sha  
     }}
