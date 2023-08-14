@@ -1,0 +1,5 @@
+__title__ = "FastAPI App"
+__version__ = "1.0.0"
+__author__ = "Akash Bhavsar"
+__description__ = "This App demonstrate a Fast API example and some github actions"
+__email__ = "arbhavsar63@gmail.com"
