@@ -1,4 +1,4 @@
-name: Build And publish Docker Image on Github Packages
+name: Build And Publish Docker Image on Github Packages
 
 on:
   push:
@@ -8,15 +8,15 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Login to GitHub Container Registry
-    uses: docker/login-action@v1
-    with:
-    registry: ghcr.io
-    username: ${{ github.actor }}
-    password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build the Image and publish it as a github package
-    run: |
+      - uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and Publish Docker image
+        run: |
           docker build . --tag ghcr.io/akash-bhavsar/fastapi-app:latest
           docker run ghcr.io/akash-bhavsar/fastapi-app:latest
           docker push ghcr.io/akash-bhavsar/fastapi-app:latest
