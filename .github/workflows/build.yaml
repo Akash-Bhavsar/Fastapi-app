@@ -18,5 +18,5 @@ jobs:
       - name: Build and Publish Docker image
         run: |
           docker build . --tag ghcr.io/akash-bhavsar/fastapi-app:latest
-          docker run ghcr.io/akash-bhavsar/fastapi-app:latest
+          # docker run ghcr.io/akash-bhavsar/fastapi-app:latest
           docker push ghcr.io/akash-bhavsar/fastapi-app:latest
