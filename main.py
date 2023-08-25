@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from __manifest__ import __description__, __version__
+import os
+os.environ["GIT_PYTHON_REFRESH"] = "quiet"
 import git
 
 
