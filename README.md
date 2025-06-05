@@ -94,6 +94,48 @@ The tests include:
 - Git SHA retrieval mocking
 - Response format validation
 
+## CI/CD Pipeline
+
+This project uses GitHub Actions for continuous integration and deployment. The pipeline automatically builds, tests, and packages the application.
+
+### Pipeline Features
+
+- **Automated Testing**: Runs unit tests on every push and pull request
+- **Docker Build**: Creates Docker images with automatic tagging
+- **Multi-Platform Support**: Builds for both AMD64 and ARM64 architectures
+- **Container Registry**: Pushes images to GitHub Container Registry (ghcr.io)
+- **Security Scanning**: Validates code and container security
+
+### Workflow Triggers
+
+The CI/CD pipeline runs on:
+- **Push to main/master branch**: Full build, test, and deployment
+- **Pull Requests**: Testing and validation only
+- **Manual Dispatch**: Can be triggered manually from GitHub Actions tab
+
+### Package Distribution
+
+Built Docker images are available at:
+```
+ghcr.io/akash-bhavsar/fastapi-app:latest
+ghcr.io/akash-bhavsar/fastapi-app:v1.0.0
+```
+
+To use the pre-built image:
+```bash
+docker pull ghcr.io/akash-bhavsar/fastapi-app:latest
+docker run -p 8000:8000 ghcr.io/akash-bhavsar/fastapi-app:latest
+```
+
+### Pipeline Configuration
+
+The GitHub Actions workflow includes:
+1. **Setup**: Python environment and dependencies
+2. **Test**: Run pytest with coverage reporting
+3. **Build**: Create Docker image with proper tagging
+4. **Security**: Scan for vulnerabilities
+5. **Deploy**: Push to container registry
+
 ## Docker Details
 
 - **Base Image**: Python 3.9.6 slim
@@ -117,7 +159,7 @@ The application uses these environment variables:
 
 ## Author
 
-**Akash Bhavsar**  
+**Akash Bhavsar**
 Email: arbhavsar63@gmail.com
 
 ## License
